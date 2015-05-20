@@ -227,7 +227,7 @@ endif
 	$(hide) TARGET_BUILD_TYPE="$(TARGET_BUILD_VARIANT)" \
 			TARGET_BUILD_FLAVOR="$(TARGET_PRODUCT)-$(TARGET_BUILD_VARIANT)" \
 			TARGET_DEVICE="$(TARGET_VENDOR_DEVICE_NAME)" \
-			CM_DEVICE="$(TARGET_DEVICE)" \
+			PX_DEVICE="$(TARGET_DEVICE)" \
 			PRODUCT_NAME="$(TARGET_VENDOR_PRODUCT_NAME)" \
 			PRODUCT_BRAND="$(PRODUCT_BRAND)" \
 			PRODUCT_DEFAULT_LANGUAGE="$(call default-locale-language,$(PRODUCT_LOCALES))" \
@@ -1659,7 +1659,7 @@ endif
 ifeq ($(WITH_GMS),true)
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := false
 else
-ifneq ($(CM_BUILD),)
+ifneq ($(PX_BUILD),)
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := true
 else
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := false
@@ -1693,14 +1693,29 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 	   $(if $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
-CM_TARGET_PACKAGE := $(PRODUCT_OUT)/cm-$(CM_VERSION).zip
+PX_TARGET_PACKAGE := $(PRODUCT_OUT)/$(PX_VERSION)-$(TARGET_DEVICE).zip
 
 .PHONY: otapackage bacon
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CM_TARGET_PACKAGE)
-	$(hide) $(MD5SUM) $(CM_TARGET_PACKAGE) > $(CM_TARGET_PACKAGE).md5sum
-	@echo -e ${CL_CYN}"Package Complete: $(CM_TARGET_PACKAGE)"${CL_RST}
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(PX_TARGET_PACKAGE)
+	$(hide) $(MD5SUM) $(PX_TARGET_PACKAGE) > $(PX_TARGET_PACKAGE).md5sum
+
+	txtbld := $(tput bold) # Bold text
+	bldcya := ${txtbld}$(tput setaf 6) # bold cyan text
+	txtrst=$(tput sgr0) # Reset text colour
+
+	@echo -e ${bldcya}"__________                   __               __ ____  ___"${txtrst}
+	@echo -e ${bldcya}"\______   \_______  ____    |__| ____   _____/  |\   \/  /"${txtrst}"
+	@echo -e ${bldcya}" |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\     / "${txtrst}"
+	@echo -e ${bldcya}" |    |     |  | \(  <_> )  |  \  ___/\  \___|  | /     \ "${txtrst}"
+	@echo -e ${bldcya}" |____|     |__|   \____/\__|  |\___  >\___  >__|/___/\  \"${txtrst}"
+	@echo -e ${bldcya}"                        \______|    \/     \/          \_/"${txtrst}"
+	@echo ""	
+	@echo -e ${bldcya}"***************************************************************************************"${txtrst}
+	@echo -e ${bldcya}"Package Complete: $(CH_TARGET_PACKAGE)"${txtrst}
+	@echo -e ${bldcya}"Md5 sum: $(MD5SUM)"${txtrst}
+	@echo -e ${bldcya}"***************************************************************************************"${txtrst
 
 endif    # recovery_fstab is defined
 endif    # TARGET_NO_KERNEL != true
