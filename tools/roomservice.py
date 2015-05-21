@@ -176,12 +176,16 @@ def add_to_manifest(repositories, fallback_branch = None):
             print('ProjectX/%s already exists' % (repo_name))
             continue
 
-        print('Adding dependency: ProjectX/%s -> %s' % (repo_name, repo_target))
+        print('Adding dependency: %s -> %s' % (repo_name, repo_target))
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "ProjectX/%s" % repo_name })
-
-        if 'branch' in repository:
-            project.set('revision',repository['branch'])
+                        "remote": "ch", "name": "%s" % repo_name })
+        
+		## dependencies file must contain "revision" and "remote" unless we are using CyanHacker repo
+		## on default branch
+        if 'revision' in repository:
+            project.set('revision',repository['revision'])
+        if 'remote' in repository:
+            project.set('remote', repository['remote'])
         elif fallback_branch:
             print("Using fallback branch %s for %s" % (fallback_branch, repo_name))
             project.set('revision', fallback_branch)
