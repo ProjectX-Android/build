@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "facab960_65bcca6d",
+        "filename": "core/Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1003174
+      },
+      "writtenOn": "2015-05-24T20:17:12Z",
+      "side": 1,
+      "message": "BUG",
+      "range": {
+        "startLine": 1703,
+        "startChar": 0,
+        "endLine": 1718,
+        "endChar": 116
+      },
+      "revId": "c8fc4bb0e29cdbb9a44a64fc4200121350993de7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
