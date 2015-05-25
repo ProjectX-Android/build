@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "facab960_ca2be52e",
+        "filename": "tools/buildinfo.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1004118
+      },
+      "writtenOn": "2015-05-25T13:33:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "facab960_7f09bd94",
+      "revId": "78207bad183a6acd5870121b4cc68c924a495474",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "facab960_bf034572",
         "filename": "tools/roomservice.py",
         "patchSetId": 3
