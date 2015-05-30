@@ -64,7 +64,7 @@ endif # CALLED_FROM_SETUP
 
 ifneq ($(PRINT_BUILD_CONFIG),)
 HOST_OS_EXTRA:=$(shell python -c "import platform; print(platform.platform())")
-$(info ============================================)
+$(info =====================================================================)
 $(info   PLATFORM_VERSION=$(PLATFORM_VERSION))
 $(info   PX_VERSION=$(PX_VERSION))
 $(info   TARGET_PRODUCT=$(TARGET_PRODUCT))
@@ -78,5 +78,10 @@ $(info   HOST_OS=$(HOST_OS))
 $(info   HOST_OS_EXTRA=$(HOST_OS_EXTRA))
 $(info   BUILD_ID=$(BUILD_ID))
 $(info   OUT_DIR=$(OUT_DIR))
-$(info ============================================)
+$(info =====================================================================)
+ifdef SM_VENDOR
+  # Include sabermod dumpvar.mk
+  include $(SM_VENDOR)/build/dumpvar.mk
+endif
+$(info =====================================================================)
 endif
