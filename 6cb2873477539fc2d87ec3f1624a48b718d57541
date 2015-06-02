@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "facab960_0ffe8d38",
+        "filename": "core/combo/TARGET_linux-arm.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003174
+      },
+      "writtenOn": "2015-06-02T20:01:38Z",
+      "side": 1,
+      "message": "-sm",
+      "revId": "6cb2873477539fc2d87ec3f1624a48b718d57541",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "facab960_eff969c9",
+        "filename": "core/combo/TARGET_linux-arm64.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003174
+      },
+      "writtenOn": "2015-06-02T20:01:38Z",
+      "side": 1,
+      "message": "-sm",
+      "revId": "6cb2873477539fc2d87ec3f1624a48b718d57541",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "facab960_cf13c50b",
+        "filename": "core/dumpvar.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1003174
+      },
+      "writtenOn": "2015-06-02T20:01:38Z",
+      "side": 1,
+      "message": "double",
+      "range": {
+        "startLine": 81,
+        "startChar": 22,
+        "endLine": 81,
+        "endChar": 77
+      },
+      "revId": "6cb2873477539fc2d87ec3f1624a48b718d57541",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
